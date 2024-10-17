@@ -1,0 +1,26 @@
+
+.card-img-top{
+    height: 200px;
+    padding: 10px;
+    object-fit: contain;
+
+}
+
+.card-title{
+    max-height: 20px;
+    overflow: hidden;
+}
+
+.card-text{
+    max-height: 78px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
