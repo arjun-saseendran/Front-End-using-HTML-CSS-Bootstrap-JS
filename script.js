@@ -1,7 +1,6 @@
 let row = document.querySelector(".row");
 let searchButton = document.querySelector(".btn");
 let searchInput = document.querySelector(".form-control");
-let products = [];
 
 async function fetchData() {
   try {
