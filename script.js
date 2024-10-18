@@ -1,14 +1,26 @@
 let row = document.querySelector(".row");
-fetch("https://fakestoreapi.com/products")
-  .then((res) => res.json())
-  .then((data) => {
-    const products = data;
+let searchButton = document.querySelector(".btn");
+let searchInput = document.querySelector(".form-control");
+let products = [];
 
-    products.map((product) => {
-      let col = document.createElement("div");
-      col.classList.add("col-12", "col-sm-6", "col-md-4", "col-xl-3", 'mb-4');
+async function fetchData() {
+  try {
+    let response = await fetch("https://fakestoreapi.com/products");
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-      col.innerHTML = `
+fetchData().then((data) => {
+  products = data;
+
+  products.map((product) => {
+    let col = document.createElement("div");
+    col.classList.add("col-12", "col-sm-6", "col-md-4", "col-xl-3", "mb-4");
+
+    col.innerHTML = `
         <div class="card">
   <img src=${product.image} class="card-img-top">
   <div class="card-body">
@@ -19,6 +31,6 @@ fetch("https://fakestoreapi.com/products")
   </div>
 </div>`;
 
-      row.append(col);
-    });
+    row.append(col);
   });
+});
